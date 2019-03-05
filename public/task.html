@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<meta charset="utf-8"/>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>ArabicAI</title>
+</head>
+<body>
+
+<div>
+<h2>اقرء النص التالي وإطرح ٥ اسئلة عليه:</h2>
+
+
+<h2> تعليمات:</h2>
+<ul>
+    <li><h3>يجب أن يكون جواب الاسئلة موجود بذاته في النص</h3></li>
+    <li><h3>يفضل أن تستعمل كلماتك الخاصة لطرح الاسئلة و عدم النقل من النص</h3></li>
+    <li><h3>الاسئلة الصعبة مفضلة</h3></li>
+</ul>
+</div>
+
+<div>
+  <form id="task_form">
+    <p id="parag1"></p>
+    <label for="question1">السؤال الأول</label>
+    <input type="text" class="question" id="Q1" name="question1" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A1" name="answer1" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <label for="question2">السؤال الثاني</label>
+    <input type="text" class="question"  id="Q2" name="question2" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A2" name="answer2" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <label for="question3">السؤال الثالث</label>
+    <input type="text" class="question"  id="Q3" name="question3" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A3" name="answer3" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <p id="parag2"></p>
+    <label for="question4">السؤال الأول</label>
+    <input type="text" class="question" id="Q4" name="question4" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A4" name="answer4" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <label for="question5">السؤال الثاني</label>
+    <input type="text" class="question"  id="Q5" name="question5" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A5" name="answer5" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <label for="question6">السؤال الثالث</label>
+    <input type="text" class="question"  id="Q6" name="question6" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A6" name="answer6" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <p id="parag3"></p>
+    <label for="question7">السؤال الأول</label>
+    <input type="text" class="question" id="Q7" name="question7" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A7" name="answer7" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <label for="question8">السؤال الثاني</label>
+    <input type="text" class="question"  id="Q8" name="question8" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A8" name="answer8" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <label for="question9">السؤال الثالث</label>
+    <input type="text" class="question"  id="Q9" name="question9" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة.">
+    <input type="text" class="answer" id="A9" name="answer9" placeholder="إنسخ الجواب حرفياً من النص.">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<!-- YAMLI CODE START -->
+<script type="text/javascript" src="https://api.yamli.com/js/yamli_api.js"></script>
+<script type="text/javascript">
+  if (typeof(Yamli) == "object" && Yamli.init( { uiLanguage: "en" , startMode: "onOrUserDefault" } ))
+  {
+    Yamli.yamlifyClass( "question", { settingsPlacement: "inside" } );
+    Yamli.yamlifyClass( "answer", { settingsPlacement: "inside" } );
+  }
+</script>
+<!-- YAMLI CODE END -->
+
+<script src="/__/firebase/5.8.5/firebase-app.js"></script>
+<script src="/__/firebase/5.8.5/firebase-database.js"></script>
+<script src="/__/firebase/5.8.5/firebase-firestore.js"></script>
+<script src="/__/firebase/5.8.5/firebase-functions.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script src="./main.js"></script>
+
+</body>
+</html>
