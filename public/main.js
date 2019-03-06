@@ -4,16 +4,35 @@ var task_id;
 document.querySelector("#task_form").addEventListener("submit", (e) => {
     e.preventDefault();
     var batch = db.batch();
+    var collec_ref = db.collection("responses").doc(task_id);
+//    var article = db.collection("tasks").doc(task_id);
+//    article.get().then(function(doc) {
+//    if (doc.exists) {
+//         batch.set(collec_ref,{
+//            article: doc.data().article,
+//            p1: doc.data().p1,
+//            p2: doc.data().p2,
+//            p3: doc.data().p3
+//            },{ merge: true });
+//    } else {
+//        // doc.data() will be undefined in this case
+//        console.log("No such document!");
+//    }
+//}).catch(function(error) {
+//    console.log("Error getting document:", error);
+//});
 
+    var qs  = []
+    var as = []
     for (var i = 1; i <= 9; i++) {
         var q = document.getElementById("Q" + i).value;
         var a = document.getElementById("A" + i).value;
-        var parag = Math.floor(((i - 1) / 3) + 1);
-        var collec = "p" + parag + "_qa";
-        var collec_ref = db.collection("tasks").doc(task_id).collection(collec).doc();
-        batch.set(collec_ref, { questions: q, answer: a });
+        qs.push(q)
+        as.push(a)
     }
-
+     batch.set(collec_ref, {
+        questions: qs,
+        answers: as },{ merge: true });
     batch.commit().then(() => {
         db.collection("tasks").doc(task_id).update({
             done: true
@@ -36,6 +55,7 @@ db.collection("tasks")
         var rand_task = query_snapshot.docs[Math.floor(Math.random() * query_snapshot.docs.length)];
         task_id = rand_task.id;
         document.getElementById("parag1").innerHTML = rand_task.data().p1;
+        console.log(rand_task.data().p1)
         document.getElementById("parag2").innerHTML = rand_task.data().p2;
         document.getElementById("parag3").innerHTML = rand_task.data().p3;
     })

@@ -6,62 +6,148 @@
     <title>ArabicAI</title>
 </head>
 <body>
+<script type="text/javascript">
+   function validate(evt) {
+     var theEvent = evt || window.event;
+     var key = theEvent.keyCode || theEvent.which;
+     key = String.fromCharCode(key);
+    var regex = /[]|\./;
+     if(!regex.test(key)) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+   }
 
+</script>
 <div>
-<h2>اقرء النص التالي وإطرح ٥ اسئلة عليه:</h2>
+    <h1>إطرح اسئلة على نص </h1>
+
+    <h2>The purpose of this data collection is for testing and training of machine learning models for automatic Arabic
+        Question Answering,
+        for any feedback please email us at: hekk.dev@gmail.com </h2>
+    <h3> وقت للعمل: 10-15 دقائق </h3>
+
+    <h2> تعليمات:</h2>
+    <ul>
+        <li><h3>يتواجد على الصفحة ثلاثة نصوص تتناول موضوع وحد، الرجاء كتابة و إجابة ثلاثة اسئلة موضوعية على كل نصص </h3>
+        </li>
+        <li><h3>يجب أن يكون جواب الاسئلة موجود بذاته في النص</h3></li>
+        <li><h3> يفضل أن تستعمل كلماتك الخاصة لطرح الاسئلة و عدم النقل من النص، الاسئلة الصعبة مفضلة </h3></li>
+
+    </ul>
+
+    <h2> ملاحظات: </h2>
+    <ul>
+        <li><h3> النصوص مأخوذة من ويكيبيديا </h3></li>
+        <li><h3> يمكنم إستعمل YAMLI للكتابة </h3></li>
+        <li><h3>تحذير: بعض النصوص قد تتناول مواضيع إباحية، يمكنك الدخول إلى الصفحة مجدداً للحصول على نص جديد </h3></li>
+    </ul>
+    <h2>مثال: </h2>
+    <p><font size="+3"> <b>
+        نص
+    </b></p>
+
+    <p><font size="+2">لبنان أو (رسمياً: الجمهوريّة اللبنانيّة)، هي دولة عربية واقعة في الشرق الأوسط في غرب القارة
+        الآسيوية. تحدها سوريا من الشمال والشرق، وفلسطين المحتلة - إسرائيل من الجنوب، وتطل من جهة الغرب على البحر الأبيض
+        المتوسط. هو بلد ديمقراطي جمهوري طوائفي. معظم سكانه من العرب المسلمين والمسيحيين. وبخلاف غالبية الدول العربية
+        هناك وجود فعال للمسيحيين في الحياة العامة والسياسية. هاجر وانتشر أبناؤه حول العالم منذ أيام الفينيقيين، وحالياً
+        فإن عدد اللبنانيين المهاجرين يقدر بضعف عدد اللبنانيين المقيمين.</p>
+    <p><font size="+3"> <b>
+        سؤال
+    </b></p>
+    <p><font size="+2">
+        من أية جهات تحد سوريا لبنان؟
+    </p>
+    <p><font size="+3"> <b>
+        الجواب من النص
+    </b></p>
+    <p><font size="+2">
+        الشمال والشرق
+    </p>
 
 
-<h2> تعليمات:</h2>
-<ul>
-    <li><h3>يجب أن يكون جواب الاسئلة موجود بذاته في النص</h3></li>
-    <li><h3>يفضل أن تستعمل كلماتك الخاصة لطرح الاسئلة و عدم النقل من النص</h3></li>
-    <li><h3>الاسئلة الصعبة مفضلة</h3></li>
-</ul>
 </div>
 
 <div>
-  <form id="task_form">
-    <p id="parag1"></p>
-    <label for="question1">السؤال الأول</label>
-    <input type="text" class="question" id="Q1" name="question1" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A1" name="answer1" placeholder="إنسخ الجواب حرفياً من النص." required>
+    <form id="task_form">
+        <hr>
+        <h3>حاول طرح 3 اسئلة على النص التالي وإنسخ (copy-paste) الجواب: أصغر مقطع من النص يجاوب على السؤال </h3>
+        <p id="parag1"></p>
+        <label for="question1">السؤال الأول</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q1" name="question1"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A1" name="answer1"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
 
-    <label for="question2">السؤال الثاني</label>
-    <input type="text" class="question"  id="Q2" name="question2" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A2" name="answer2" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <label for="question2">السؤال الثاني</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q2" name="question2"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A2" name="answer2"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
 
-    <label for="question3">السؤال الثالث</label>
-    <input type="text" class="question"  id="Q3" name="question3" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A3" name="answer3" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <label for="question3">السؤال الثالث</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q3" name="question3"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A3" name="answer3"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
+        <hr>
+                <h3>حاول طرح 3 اسئلة على النص التالي وإنسخ (copy-paste) الجواب: أصغر مقطع من النص يجاوب على السؤال </h3>
 
-    <p id="parag2"></p>
-    <label for="question4">السؤال الأول</label>
-    <input type="text" class="question" id="Q4" name="question4" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A4" name="answer4" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <p id="parag2"></p>
 
-    <label for="question5">السؤال الثاني</label>
-    <input type="text" class="question"  id="Q5" name="question5" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A5" name="answer5" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <label for="question4">السؤال الأول</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q4" name="question4"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A4" name="answer4"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
 
-    <label for="question6">السؤال الثالث</label>
-    <input type="text" class="question"  id="Q6" name="question6" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A6" name="answer6" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <label for="question5">السؤال الثاني</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q5" name="question5"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A5" name="answer5"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
 
-    <p id="parag3"></p>
-    <label for="question7">السؤال الأول</label>
-    <input type="text" class="question" id="Q7" name="question7" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A7" name="answer7" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <label for="question6">السؤال الثالث</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q6" name="question6"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A6" name="answer6"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
+        <hr>
+                <h3>حاول طرح 3 اسئلة على النص التالي وإنسخ (copy-paste) الجواب: أصغر مقطع من النص يجاوب على السؤال </h3>
 
-    <label for="question8">السؤال الثاني</label>
-    <input type="text" class="question"  id="Q8" name="question8" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A8" name="answer8" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <p id="parag3"></p>
 
-    <label for="question9">السؤال الثالث</label>
-    <input type="text" class="question"  id="Q9" name="question9" placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
-    <input type="text" class="answer" id="A9" name="answer9" placeholder="إنسخ الجواب حرفياً من النص." required>
+        <label for="question7">السؤال الأول</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q7" name="question7"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A7" name="answer7"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
 
-    <input type="submit" value="Submit">
-  </form>
+        <label for="question8">السؤال الثاني</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q8" name="question8"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A8" name="answer8"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
+
+        <label for="question9">السؤال الثالث</label>
+        <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
+               onCut="return false" class="question" id="Q9" name="question9"
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+        <input type="text" class="answer" onkeypress='validate(event)' id="A9" name="answer9"
+               placeholder="إنسخ الجواب حرفياً من النص." required>
+        <hr>
+        <h2> شكراً جزيلاً على وقتك! </h2>
+
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
 <!-- YAMLI CODE START -->
@@ -70,8 +156,8 @@
   if (typeof(Yamli) == "object" && Yamli.init( { uiLanguage: "en" , startMode: "onOrUserDefault" } ))
   {
     Yamli.yamlifyClass( "question", { settingsPlacement: "inside" } );
-    Yamli.yamlifyClass( "answer", { settingsPlacement: "inside" } );
   }
+
 </script>
 <!-- YAMLI CODE END -->
 

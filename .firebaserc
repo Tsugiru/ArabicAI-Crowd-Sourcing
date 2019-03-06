@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "crowd-sourcing-d506a"
+    "default": "crowd-sourcing-d506a",
+    "crowd-sourcing": "crowd-sourcing-d506a",
+    "crowd": "crowd-sourcing-d506a"
   }
 }
