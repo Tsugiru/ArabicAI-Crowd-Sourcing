@@ -42,34 +42,35 @@
         <li><h3> يمكنم إستعمل YAMLI للكتابة </h3></li>
         <li><h3>تحذير: بعض النصوص قد تتناول مواضيع إباحية، يمكنك الدخول إلى الصفحة مجدداً للحصول على نص جديد </h3></li>
     </ul>
-    <h2>مثال: </h2>
-    <p><font size="+3"> <b>
-        نص
-    </b></p>
-
-    <p><font size="+2">لبنان أو (رسمياً: الجمهوريّة اللبنانيّة)، هي دولة عربية واقعة في الشرق الأوسط في غرب القارة
-        الآسيوية. تحدها سوريا من الشمال والشرق، وفلسطين المحتلة - إسرائيل من الجنوب، وتطل من جهة الغرب على البحر الأبيض
-        المتوسط. هو بلد ديمقراطي جمهوري طوائفي. معظم سكانه من العرب المسلمين والمسيحيين. وبخلاف غالبية الدول العربية
-        هناك وجود فعال للمسيحيين في الحياة العامة والسياسية. هاجر وانتشر أبناؤه حول العالم منذ أيام الفينيقيين، وحالياً
-        فإن عدد اللبنانيين المهاجرين يقدر بضعف عدد اللبنانيين المقيمين.</p>
-    <p><font size="+3"> <b>
-        سؤال
-    </b></p>
-    <p><font size="+2">
-        من أية جهات تحد سوريا لبنان؟
-    </p>
-    <p><font size="+3"> <b>
-        الجواب من النص
-    </b></p>
-    <p><font size="+2">
-        الشمال والشرق
-    </p>
-
-
+  <hr>
 </div>
 
 <div>
     <form id="task_form">
+
+      <h2>مثال: </h2>
+      <p><font size="+3"> <b>
+          نص
+      </b></p>
+      <p id="test_parag"></p>
+      <p><font size="+3"> <b>
+          سؤال
+      </b></p>
+      <p id="example_q"></p>
+      <p><font size="+3"> <b>
+          الجواب من النص
+      </b></p>
+      <p id="example_a"></p>
+      <p><font size="+3"> <b>
+          سؤال للإجابة (ضروري)
+      </b></p>
+      <p id="test_q"></p>
+      <p><font size="+3"> <b>
+          الجواب من النص
+      </b></p>
+      <input type="text" id="test_a" class="answer" onkeypress='validate(event)'  name="test_a"
+             placeholder="إنسخ الجواب حرفياً من النص." required>
+
         <hr>
         <h3>حاول طرح 3 اسئلة على النص التالي وإنسخ (copy-paste) الجواب: أصغر مقطع من النص يجاوب على السؤال </h3>
         <p id="parag1"></p>
@@ -90,9 +91,9 @@
         <label for="question3">السؤال الثالث</label>
         <input type="text" onselectstart="return false" onpaste="return false;" onCopy="return false"
                onCut="return false" class="question" id="Q3" name="question3"
-               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." required>
+               placeholder="إطرح سؤالك هنا مستخدماً كلماتك الخاصة." >
         <input type="text" class="answer" onkeypress='validate(event)' id="A3" name="answer3"
-               placeholder="إنسخ الجواب حرفياً من النص." required>
+               placeholder="إنسخ الجواب حرفياً من النص." >
         <hr>
                 <h3>حاول طرح 3 اسئلة على النص التالي وإنسخ (copy-paste) الجواب: أصغر مقطع من النص يجاوب على السؤال </h3>
 

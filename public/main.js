@@ -24,6 +24,8 @@ document.querySelector("#task_form").addEventListener("submit", (e) => {
 
     var qs  = []
     var as = []
+    var test_q = document.getElementById("test_q").innerHTML;
+    var test_a = document.getElementById("test_a").value;
     for (var i = 1; i <= 9; i++) {
         var q = document.getElementById("Q" + i).value;
         var a = document.getElementById("A" + i).value;
@@ -32,7 +34,10 @@ document.querySelector("#task_form").addEventListener("submit", (e) => {
     }
      batch.set(collec_ref, {
         questions: qs,
-        answers: as },{ merge: true });
+        answers: as,
+        test_q: test_q,
+        test_a: test_a
+       },{ merge: true });
     batch.commit().then(() => {
         db.collection("tasks").doc(task_id).update({
             done: true
@@ -58,6 +63,12 @@ db.collection("tasks")
         console.log(rand_task.data().p1)
         document.getElementById("parag2").innerHTML = rand_task.data().p2;
         document.getElementById("parag3").innerHTML = rand_task.data().p3;
+        document.getElementById("test_parag").innerHTML = rand_task.data().example_p;
+        document.getElementById("example_q").innerHTML = rand_task.data().example_q;
+        document.getElementById("example_a").innerHTML = rand_task.data().example_a;
+        console.log(rand_task.data().test_q)
+        document.getElementById("test_q").innerHTML = rand_task.data().test_q;
+
     })
     .catch(function (error) {
         console.log("Error getting documents: ", error);
